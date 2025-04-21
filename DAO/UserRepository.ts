@@ -15,12 +15,4 @@ export class UserRepository {
         }
         return UserRepository.instance;
     }
-
-    getUsers(): Promise<User[]> {
-        return this.dao.getAllUsers();
-    }
-
-    addUser(user: User): Promise<void> {
-        return this.dao.addUser(user);
-    }
 }

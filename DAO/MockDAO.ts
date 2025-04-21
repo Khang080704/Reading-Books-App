@@ -3,10 +3,6 @@ import DAO from './Interface';
 import Book from '@/MockData/Book';
 
 class MockDAO extends DAO {
-    private users: User[] = [
-        new User('pgkhangt1@gmail.com', '123456', 'Khang Pham'),
-        new User('ghue0806@gmail.com', '123456789', 'Gia Hue'),
-    ];
 
     public async getAllBooks(): Promise<Book[]> {
         var res = await fetch("https://potterapi-fedeperin.vercel.app/en/books")
@@ -74,13 +70,6 @@ class MockDAO extends DAO {
         //     ),
         // ];
         return result;
-    }
-    async getAllUsers(): Promise<User[]> {
-        return this.users
-    }
-
-    async addUser(user: User): Promise<void> {
-        this.users.push(user)
     }
 }
 
