@@ -1,24 +1,22 @@
 class User {
-    private email: string;
-    private password: string;
-    private name: string;
+    private _email: string;
+    private _password: string;
+    private _name: string;
 
     public constructor(email: string, password: string, name: string) {
-        this.email = email
-        this.password = password
-        this.name = name
+        this._email = email
+        this._password = password
+        this._name = name
     }
 
-
-    public getEmail(): string {
-        return this.email
+    public get email() {
+        return this._email
     }
-
-    public getPassword(): string {
-        return this.password
+    public get password() {
+        return this._password
     }
-    public getName(): string {
-        return this.name
+    public get name() {
+        return this._name
     }
 }
 

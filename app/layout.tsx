@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Roboto } from 'next/font/google';
-import {Noto_Sans_Georgian} from 'next/font/google'
+import { Noto_Sans_Georgian } from 'next/font/google';
 import './globals.css';
+import SideBar from './components/sidebar';
 
 const getRoboto = Noto_Sans_Georgian({
     variable: '--font-geist-sans',
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${getRoboto.variable} antialiased`}>{children}</body>
+            <body className={`${getRoboto.variable} antialiased`}>
+                {children}
+            </body>
         </html>
     );
 }

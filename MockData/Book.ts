@@ -16,6 +16,10 @@ class Book {
         this._preface = preface
     }
 
+    public get id() {
+        return this._id
+    }
+
     public get name() {
         return this._name
     }
