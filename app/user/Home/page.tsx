@@ -2,30 +2,31 @@
 import Button from '@/app/components/button';
 import React, { Suspense, useEffect, useState } from 'react';
 import { useCookiesNext } from 'cookies-next';
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 //import data
 import DAO from '@/DAO/Interface';
 import MockDAO from '@/DAO/MockDAO';
 import Book from '@/MockData/Book';
-import { faArrowUp } from '@fortawesome/free-solid-svg-icons';
+import { BookDTO } from '@/DAO/Interface';
 
 function HomePage() {
     const IDAO: DAO = new MockDAO();
     const [choose, setChoose] = useState(0);
-    const [books, setBooks] = useState<any[]>([]);
+    const [books, setBooks] = useState<BookDTO[]>([]);
 
     useEffect(() => {
         const fetchBooks = async () => {
             const res = await fetch('/api/getBooks', {
-                method: 'GET'
-            })
-            if(res.ok) {
-                const data = await res.json()
-                console.log(data.data.items)
-                setBooks(data.data.items)
+                method: 'GET',
+            });
+            if (res.ok) {
+                const data = await res.json();
+                console.log(data.res);
+                setBooks(data.res);
             }
-        }
-        fetchBooks()
+        };
+        fetchBooks();
     }, []);
 
     const token = useCookiesNext().getCookie('token')?.toString();
@@ -35,13 +36,12 @@ function HomePage() {
         <div className="w-full">
             <div className="flex max-md:flex-col-reverse">
                 <div className="flex flex-col w-[50%] pr-9 max-md:pr-4 max-md:w-full">
-                    {user ? (
-                        <h1 className="font-bold text-[2rem] mb-9 max-md:hidden">Happy reading, {user} </h1>
-                    ) : (
-                        <></>
-                    )}
+                    <h1 className="font-bold text-[2rem] mb-9 max-md:hidden">
+                        {user ? `Happy reading, ${user}` : 'Happy reading'}
+                    </h1>
+                    
 
-                    <p className="mb-9 max-md:hidden h-[290px]">{books[choose]?.volumeInfo?.description}</p>
+                    <p className="mb-9 max-md:hidden h-[150px]">{books[choose]?.description}</p>
                     <div className="flex justify-between items-center max-md:mt-10">
                         <Button content="Start reading" comp="button" icon={faArrowUp} width="200px" primary />
                         <Button
@@ -55,17 +55,21 @@ function HomePage() {
                 </div>
 
                 <div className="flex flex-1 w-full">
-                    <div className="w-[40%] rounded-[20] shadow-2xl shadow-black overflow-hidden mr-4 ">
-                        <img src={books[choose]?.volumeInfo.imageLinks.thumbnail} className="object-cover shadow-2xs w-full h-full" />
+                    <div className="relative w-[40%] rounded-[20] shadow-2xl shadow-black overflow-hidden mr-4 ">
+                        <img
+                            src={books[choose]?.image}
+                            className="object-cover shadow-2xs w-full h-full"
+                            alt="cover image"
+                            style={{objectFit: 'cover', objectPosition: 'top'}}
+                        />
                     </div>
 
                     <div className="flex-1 flex flex-col justify-between">
-                        <h1 className="font-bold text-[30px]">{books[choose]?.volumeInfo.title}</h1>
+                        <h1 className="font-bold text-[30px]">{books[choose]?.name}</h1>
                         <p>
-                            NEW YORK TIMES BESTSELLER Perfect for fans of A Song of Ice and Fire and HBO's Game of
-                            Thrones
+                            {books[choose]?.preface}
                         </p>
-                        <p className="text-right font-bold">- {books[choose]?.volumeInfo.authors[0]}</p>
+                        <p className="text-right font-bold">- {books[choose]?.author}</p>
                     </div>
                 </div>
                 <h1 className="hidden font-bold text-[2rem] mb-9 max-md:block">Happy reading, Khang Pham</h1>
@@ -83,10 +87,15 @@ function HomePage() {
                                 }}
                                 className="hover:cursor-pointer hover:bg-gray-200 rounded-3xl hover:transform-[translateY(-4)] "
                             >
-                                <div className="w-full h-[350px] rounded-2xl overflow-hidden shadow-black shadow-2xl max-md:h-[250px]">
-                                    <img src={book?.volumeInfo.imageLinks.thumbnail} className="w-full h-full object-cover object-top" />
+                                <div className="relative w-full h-[350px] rounded-2xl overflow-hidden shadow-black shadow-2xl max-md:h-[250px]">
+                                    <img
+                                        src={book?.image}
+                                        className="w-full h-full object-cover object-top"
+                                        alt="cover image"
+                                        style={{objectFit: 'cover', objectPosition:'top'}}
+                                    />
                                 </div>
-                                <p className="text-center mt-3 font-semibold ">{book?.volumeInfo.title}</p>
+                                <p className="text-center mt-3 font-semibold ">{book?.name}</p>
                             </div>
                         </div>
                     );

@@ -12,7 +12,13 @@ export async function POST(req: NextRequest) {
         const result = pool.request().input('email', email).query('select * from users where email = @email');
         account = (await result).recordset[0];
 
-        if (account) {
+        if (!account) {
+            return NextResponse.json({ error: 'User not found' }, { status: 404 });
+        }
+
+        const isMatch = await comparePassword(password, account.Password);
+
+        if (isMatch) {
             const token = JSON.stringify({ name: account.Name });
 
             const response = NextResponse.json({ success: true });
@@ -32,7 +38,7 @@ export async function POST(req: NextRequest) {
         return NextResponse.json({ success: false, message: 'Sai thông tin đăng nhập' }, { status: 401 });
     } catch (err) {
         console.log('Error: ', err);
-        throw err
+        throw err;
     }
 
     // const account = MOCK_USER.filter((value: User) => {

@@ -1,75 +1,75 @@
 import User from '@/MockData/data';
 import DAO from './Interface';
 import Book from '@/MockData/Book';
+import { BookDTO } from './Interface';
 
 class MockDAO extends DAO {
 
-    public async getAllBooks(): Promise<Book[]> {
-        var res = await fetch("https://potterapi-fedeperin.vercel.app/en/books")
-        const result = await res.json()
-        // var result: Book[] = [
-        //     new Book(
-        //         0,
-        //         'The world of ice and fire',
-        //         'NEW YORK TIMES BESTSELLER • Perfect for fans of A Song of Ice and Fire and HBOs Game of Thrones—an epic history of Westeros and the lands beyond, featuring hundreds of pages of all-new material from George R. R. Martin!',
-        //         `https://i0.wp.com/www.paolopuggioni.com/admin/wp-content/uploads/2014/10/World-of-Ice-and-Fire-Cover2.jpg?w=400&ssl=1`,
-        //         'G.R.R Martin',
-        //         'If the past is prologue, then George R. R. Martin masterwork—the most inventive and entertaining fantasy saga of our time—warrants one hell of an introduction. At long last, it has arrived with The World of Ice & Fire',
-        //     ),
+    public async getAllBooks(): Promise<BookDTO[]> {
+        var result: Book[] = [
+            new Book(
+                0,
+                'Harry Potter and the Philosopher Stone',
+                "Harry discovers he's a wizard and attends Hogwarts, where he begins to learn magic and uncovers a dark secret.",
+                "https://m.media-amazon.com/images/I/61Ddo7TSTCL._SX342_SY445_.jpg",
+                'J.K. Rowling',
+                "A richly imagined world full of magic and adventure."
+            ),
+            new Book(
+                1,
+                "Harry Potter and the Chamber of Secrets",
+                "Harry returns to Hogwarts and uncovers the mystery behind a series of attacks linked to an ancient secret chamber.",
+                "https://m.media-amazon.com/images/I/61XGdLECZ5L._SX342_SY445_.jpg",
+                'J.K. Rowling',
+                "A richly imagined world full of magic and adventure."
+            ),
+            new Book(
+                2,
+                "Harry Potter and the Prisoner of Azkaban",
+                "Harry learns more about his past as a dangerous prisoner escapes and secrets about his parents emerge.",
+                "https://m.media-amazon.com/images/I/61mc3mRBvoL._SX342_SY445_.jpg",
+                'J.K. Rowling',
+                "Rowling's storytelling reaches new depths in this gripping third installment."
+            ),
+            new Book(
+                3,
+                "Harry Potter and the Goblet of Fire",
+                "Harry competes in a dangerous magical tournament and confronts the return of Voldemort.",
+                "https://m.media-amazon.com/images/I/81aTxTMB33L._SY522_.jpg",
+                'J.K. Rowling',
+                "A turning point in the series, both in tone and stakes."
+            ),
+            new Book(
+                4,
+                "Harry Potter and the Order of the Phoenix",
+                "Harry faces growing threats, forms Dumbledore's Army, and battles political interference at Hogwarts.",
+                "https://m.media-amazon.com/images/I/61XGdLECZ5L._SX342_SY445_.jpg",
+                'J.K. Rowling',
+                "Emotionally rich and politically charged."
+            ),
+            new Book(
+                5,
+                "Harry Potter and the Half-Blood Prince",
+                "Dark secrets are revealed as Harry learns about Voldemort's past and prepares for the final battle.",
+                "https://m.media-amazon.com/images/I/61XGdLECZ5L._SX342_SY445_.jpg",
+                'J.K. Rowling',
+                "Mature, mysterious, and masterfully written."
+            )
+        ];
 
-        //     new Book(
-        //         1,
-        //         'Fire and blood',
-        //         '#1 NEW YORK TIMES BESTSELLER • The history of the Targaryens comes to life in this masterly work, the inspiration for HBOs Game of Thrones prequel series House of the Dragon',
-        //         'https://m.media-amazon.com/images/I/51UMrvtH1jL._SY445_SX342_.jpg',
-        //         'G.R.R Martin',
-        //         '“The thrill of Fire & Blood is the thrill of all Martins fantasy work: familiar myths debunked, the whole trope table flipped.”—Entertainment Weekly',
-        //     ),
+        const plainBooks = result.map((book: Book) => {
+            const obj: BookDTO = {
+                id: book.id,
+                name: book.name,
+                description: book.description,
+                image: book.image,
+                author: book.author,
+                preface: book.preface
+            }
+            return obj
+        });
 
-        //     new Book(
-        //         2,
-        //         'Lord of the rings: Fellowship of the ring',
-        //         `The Fellowship of the Ring, the first volume in the trilogy, tells of the fateful power of the One Ring. It begins a magnificent tale of adventure that will plunge the members of the Fellowship of the Ring into a perilous quest and set the stage for the ultimate clash between the powers of good and evil.`,
-        //         'https://pictures.abebooks.com/isbn/9780547928210-uk.jpg',
-        //         'J.R.R Tolkien',
-        //         '',
-        //     ),
-        //     new Book(
-        //         3,
-        //         'Harry Potter: Half blood prince',
-        //         'normal',
-        //         'https://cdn.shopify.com/s/files/1/0310/7487/7577/files/Y3600HarryPotterandtheHalf-BloodPrince_USROUNDED_780cd98e-ee46-4c8f-a40c-cccb0ace3cc5.png?v=1724246382',
-        //         'J.K Rowling',
-        //         '',
-        //     ),
-
-        //     new Book(
-        //         4,
-        //         'Lord of the rings: The Two Towers',
-        //         `This brand-new unabridged audiobook of The Two Towers, the second part of J. R. R. Tolkien’s epic adventure The Lord of the Rings, is read by the BAFTA award-winning actor, director, and author Andy Serkis.`,
-        //         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjlW9juBJwVAnrkXcvE-ai_4kNH-kAcxIiTA&s',
-        //         'J.R.R Tolkien',
-        //         '',
-        //     ),
-
-        //     new Book(
-        //         5,
-        //         'Lord of the rings: The return of the king',
-        //         'Best',
-        //         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvqi-pwUOeZ_wmji5LVn5htfSa-1shYch0NA&s',
-        //         'J.R.R Tolkien',
-        //         ' ',
-        //     ),
-        //     new Book(
-        //         6,
-        //         'A Game of thrones',
-        //         'Best',
-        //         'https://m.media-amazon.com/images/I/71Jzezm8CBL._AC_UF1000,1000_QL80_DpWeblab_.jpg',
-        //         'G.R.R Martin',
-        //         '',
-        //     ),
-        // ];
-        return result;
+        return plainBooks;
     }
 }
 

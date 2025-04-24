@@ -1,19 +1,24 @@
 'use client';
 
-import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { useEffect, useRef, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 //import data
 import { users } from '@/MockData/data';
 
 function Login() {
     const router = useRouter();
+    //use state
     const [login, setLogin] = useState(true);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [remember, setRemember] = useState(false)
     const [name, setName] = useState('')
+    //use search 
+    const searchParams = useSearchParams()
+
+    const logRef = useRef<any>(null)
     
 
 
@@ -21,8 +26,9 @@ function Login() {
         setLogin(!login);
     }
 
-    async function handleLogin(e: any) {
-        const type = e.target.innerHTML
+    async function handleLogin(e: string) {
+        const type: string = logRef.current.innerHTML
+        console.log(type)
         
         if(type == "Login"){
             const res = await fetch('/api/login', {
@@ -31,7 +37,8 @@ function Login() {
             });
     
             if (res.ok) {
-                router.push('/user/Home');
+                const redirectTo = searchParams.get('redirect') || '/user/Home';
+                router.push(redirectTo);
             } else {
                 const data = await res.json();
                 setError(data.message || 'Đăng nhập thất bại');
@@ -43,7 +50,6 @@ function Login() {
                 body: JSON.stringify({ name, email, password }),
             })
 
-            console.log(res)
 
             if(res.ok) {
                 router.push('/user/Home')
@@ -51,6 +57,20 @@ function Login() {
         }
         
     }
+
+    // useEffect(() => {
+    //     const handleKeyPress = (e: KeyboardEvent) => {
+    //         if (e.key === 'Enter') {
+    //             handleLogin(logRef.current.innerHTML);
+    //         }
+    //     };
+
+    //     window.addEventListener('keypress', handleKeyPress)
+
+    //     return () => {
+    //         window.removeEventListener('keypress', handleKeyPress)
+    //     }
+    // }, [])
 
     return (
         <div className="w-full h-full flex items-center justify-center sm:h-[60%] lg:h-full">
@@ -65,7 +85,11 @@ function Login() {
                     {login ? 'Welcome back. Please login to your account' : 'Create your account'}
                 </p>
 
-                <form className="flex flex-col">
+                <form className="flex flex-col"
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    handleLogin(logRef.current.innerHTML)
+                }}>
                     <div className=" border-solid border-[#8C8C8C] border-[1px] py-3 px-5 shadow-md mb-2 focus-within:border-[#FF5585] rounded-3xl">
                         <input
                             placeholder="Email address"
@@ -115,7 +139,8 @@ function Login() {
                     <div className="flex justify-between">
                         <a
                             className="flex items-center justify-center w-[145px] h-[50px] bg-black text-white rounded-[10px] hover:cursor-pointer"
-                            onClick={(e: any) => handleLogin(e)}
+                            onClick={(e: any) => handleLogin(e.target.innerHTML)}
+                            ref={logRef}
                         >
                             {login ? 'Login' : 'Sign Up'}
                         </a>
@@ -126,6 +151,7 @@ function Login() {
                             {login ? 'Sign Up' : 'Login'}
                         </a>
                     </div>
+                    <button type='submit' hidden></button>
                 </form>
             </div>
         </div>

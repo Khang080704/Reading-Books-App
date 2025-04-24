@@ -4,23 +4,20 @@ import Book from '@/MockData/Book';
 
 async function Detail({ params }: { params: Promise<{ id: string }> }) {
     const IDao: DAO = new MockDAO();
-    const books = IDao.getAllBooks();
+    const books = await IDao.getAllBooks();
 
     const {id} = await params
+    console.log(books)
     console.log(id)
 
     // const router = useRouter()
     // const id = Number(router.query)
     // console.log(id)
 
-    const book: Book = books.filter((item) => {
-        return item.id == Number(id)
-    })[0]
-
     return (
         <div>
             detail page
-            <p>{book.name}</p>
+            {books[Number(id)].name}
         </div>
     );
 }
