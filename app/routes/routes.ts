@@ -4,27 +4,27 @@ import { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
 export const publicRoutes: {icon: any, path: string, name: string}[] = [
     {
         icon: faHome,
-        path: './Home',
+        path: '/user/Home',
         name: 'Home Page'
     },
     {
         icon: faBook,
-        path: './Book',
+        path: '/user/Book',
         name: 'Your Books'
     },
     {
         icon: faBookmark,
-        path: './BookMark',
+        path: '/user/BookMark',
         name: 'Bookmarks'
     },
     {
         icon: faGear,
-        path: './Settings',
+        path: '/user/Settings',
         name: 'Setting'
     },
     {
         icon: faClock,
-        path: './Time',
+        path: '/user/Time',
         name: 'Time'
     }
 ]

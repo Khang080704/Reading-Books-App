@@ -19,7 +19,7 @@ function HomeLayout({ children }: { children: React.ReactNode }) {
     }
 
     return (
-        <div className="w-full border-l-[0.5] pl-4 max-md:border-none max-md:pl-0">
+        <div className="w-full border-l-[0.5] pl-4 max-md:border-none max-md:pl-0 relative">
             <div className="grid grid-cols-2 gap-5 mt-2 mb-10">
                 <Search />
                 {token ? (

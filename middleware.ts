@@ -7,9 +7,9 @@ export function middleware(req: NextRequest) {
         if(req.nextUrl.pathname.startsWith('/user')) {
             return NextResponse.redirect(new URL(`/login`, req.url));
         }
-        if(req.nextUrl.pathname.startsWith('/user/Home/Detail')) {
+        if(req.nextUrl.pathname.startsWith('/user')) {
             const redirectUrl = encodeURIComponent(req.nextUrl.pathname);
-            return NextResponse.redirect(new URL(`/login?redirect=${redirectUrl}`, req.url));
+            return NextResponse.redirect(new URL(`/login`, req.url));
         }
         
     }
