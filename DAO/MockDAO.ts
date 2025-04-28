@@ -51,7 +51,7 @@ class MockDAO extends DAO {
                 5,
                 "Harry Potter and the Half-Blood Prince",
                 "Dark secrets are revealed as Harry learns about Voldemort's past and prepares for the final battle.",
-                "https://m.media-amazon.com/images/I/81xf7GKNKTL._AC_UY654_FMwebp_QL65_.jpg",
+                "https://m.media-amazon.com/images/I/81Qo0E83U4L._AC_UY654_FMwebp_QL65_.jpg",
                 'J.K. Rowling',
                 "Mature, mysterious, and masterfully written."
             ),
@@ -59,7 +59,7 @@ class MockDAO extends DAO {
                 5,
                 "Harry Potter and the Half-Blood Prince",
                 "Dark secrets are revealed as Harry learns about Voldemort's past and prepares for the final battle.",
-                "https://m.media-amazon.com/images/I/81HBcDX72gL._AC_UY654_FMwebp_QL65_.jpg",
+                "https://m.media-amazon.com/images/I/A19cON7-gXL._AC_UY654_FMwebp_QL65_.jpg",
                 'J.K. Rowling',
                 "Mature, mysterious, and masterfully written."
             )

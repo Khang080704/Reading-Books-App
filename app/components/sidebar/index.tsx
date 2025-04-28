@@ -12,8 +12,8 @@ function SideBar() {
     const [active, setActive] = useState(0)
 
     return (
-        <div className="lg:sticky top-0 left-0 lg:w-fit flex flex-col justify-center items-center lg:h-[100vh] pl-1">
-            <ul>
+        <div className="lg:sticky top-0 left-0 lg:w-fit flex flex-col justify-center items-center h-[100vh] pl-1">
+            <ul >
                 {publicRoutes.map((route, index) => {
                     return (
                         <Link href={route.path} key={index} onClick={() => {setActive(index)}}>

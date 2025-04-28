@@ -52,19 +52,20 @@ function HomePage() {
                     </div>
                 </div>
 
-                <div className="flex flex-1 w-full">
+                <div className="flex flex-1 w-full max-md:flex-col max-md:items-center">
                     {/* <div className="relative w-[40%] rounded-[20] shadow-2xl shadow-black overflow-hidden mr-4 ">
                     </div> */}
                     <img
                         src={books[choose]?.image}
-                        className="object-cover w-[300px] h-[300px] rounded-[20] shadow-2xl shadow-black overflow-hidden mr-4"
+                        className="object-cover w-[300px] h-[300px] rounded-[20] shadow-2xl shadow-black overflow-hidden mr-4
+                        max-md:mb-4"
                         alt="cover image"
                         style={{ objectFit: 'contain', objectPosition: 'center' }}
                     />
 
                     <div className="flex-1 flex flex-col justify-between">
-                        <h1 className="font-bold text-[30px]">{books[choose]?.name}</h1>
-                        <p>{books[choose]?.preface}</p>
+                        <h1 className="font-bold text-[30px] max-md:text-center">{books[choose]?.name}</h1>
+                        <p className='max-md:text-center'>{books[choose]?.preface}</p>
                         <p className="text-right font-bold">- {books[choose]?.author}</p>
                     </div>
                 </div>
@@ -73,7 +74,7 @@ function HomePage() {
 
             <h1 className="font-bold text-[25px] my-10">Popular now</h1>
 
-            <div className="grid grid-cols-4 gap-x-10 gap-y-4 flex-shrink-0 max-md:grid-cols-2">
+            <div className="grid grid-cols-4 gap-x-10 gap-y-4 max-md:grid-cols-2 max-md:gap-x-5">
                 {books.map(function (book: any, index: number): React.ReactNode {
                     return (
                         <div key={index}>
@@ -87,10 +88,10 @@ function HomePage() {
                                 </div> */}
                                 <img
                                     src={book?.image}
-                                    className="w-full h-[350px] object-contain object-center rounded-2xl  "
+                                    className="w-full h-[350px] object-contain object-center rounded-2xl max-md:h-[150px] "
                                     alt="cover image"
                                 />
-                                <p className="text-center mt-3 font-semibold ">{book?.name}</p>
+                                <p className="text-center mt-3 font-semibold max-md:text-[0.9rem]">{book?.name}</p>
                             </div>
                         </div>
                     );

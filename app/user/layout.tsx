@@ -7,7 +7,7 @@ function UserLayout({children}: {children: React.ReactNode}) {
             <aside className="max-md:hidden">
                 <SideBar/>
             </aside>
-            <main className="flex-1 px-10 max-md:px-2">
+            <main className="flex-1 px-10 max-md:px-0">
                 {children}
             </main>
         </main>

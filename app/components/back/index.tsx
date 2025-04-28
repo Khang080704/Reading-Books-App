@@ -6,7 +6,9 @@ function BackButton() {
     const route = useRouter()
 
     return (
-        <button className="rounded-[50] px-4 py-3 border border-black hover:cursor-pointer hover:bg-gray-300" onClick={() => route.back()}>
+        <button className="rounded-[50] px-4 py-3 border border-black hover:cursor-pointer hover:bg-gray-300
+        max-md:px-3 max-md:py-2"
+         onClick={() => route.back()}>
             <FontAwesomeIcon icon={faArrowLeft}/>
         </button>
     )
