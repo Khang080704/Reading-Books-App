@@ -10,8 +10,8 @@ async function Detail({ params }: { params: Promise<{ id: string }> }) {
     const books = await IDao.getAllBooks();
 
     const { id } = await params;
-    console.log(books);
     const bookID = Number(id);
+
 
     return (
         <>
@@ -37,7 +37,7 @@ async function Detail({ params }: { params: Promise<{ id: string }> }) {
             </div>
 
             <div className="absolute w-full top-[-25%] transform-[translateY(50%)] grid grid-cols-[30%_1fr] px-20">
-                <img src={books[bookID].image} className="object-contain w-[90%] shadow-2xl rounded-[10]" />
+                <img src={books[bookID].image} className="object-cover w-[200px] shadow-2xl rounded-[10]" />
 
                 <div className="row-span-2 flex flex-col justify-between">
                     <h1 className='font-bold text-[1.5rem]'>{books[bookID].author}</h1>

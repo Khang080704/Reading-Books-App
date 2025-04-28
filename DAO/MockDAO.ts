@@ -11,7 +11,7 @@ class MockDAO extends DAO {
                 0,
                 'Harry Potter and the Philosopher Stone',
                 "Harry discovers he's a wizard and attends Hogwarts, where he begins to learn magic and uncovers a dark secret.",
-                "https://m.media-amazon.com/images/I/61Ddo7TSTCL._SX342_SY445_.jpg",
+                "https://m.media-amazon.com/images/I/91eopoUCjLL._AC_UY654_FMwebp_QL65_.jpg",
                 'J.K. Rowling',
                 "A richly imagined world full of magic and adventure."
             ),
@@ -19,7 +19,7 @@ class MockDAO extends DAO {
                 1,
                 "Harry Potter and the Chamber of Secrets",
                 "Harry returns to Hogwarts and uncovers the mystery behind a series of attacks linked to an ancient secret chamber.",
-                "https://m.media-amazon.com/images/I/61XGdLECZ5L._SX342_SY445_.jpg",
+                "https://m.media-amazon.com/images/I/91u+AfDBxlL._AC_UY654_FMwebp_QL65_.jpg",
                 'J.K. Rowling',
                 "A richly imagined world full of magic and adventure."
             ),
@@ -27,7 +27,7 @@ class MockDAO extends DAO {
                 2,
                 "Harry Potter and the Prisoner of Azkaban",
                 "Harry learns more about his past as a dangerous prisoner escapes and secrets about his parents emerge.",
-                "https://m.media-amazon.com/images/I/61mc3mRBvoL._SX342_SY445_.jpg",
+                "https://m.media-amazon.com/images/I/91II+F1H7LL._AC_UY654_FMwebp_QL65_.jpg",
                 'J.K. Rowling',
                 "Rowling's storytelling reaches new depths in this gripping third installment."
             ),
@@ -35,7 +35,7 @@ class MockDAO extends DAO {
                 3,
                 "Harry Potter and the Goblet of Fire",
                 "Harry competes in a dangerous magical tournament and confronts the return of Voldemort.",
-                "https://m.media-amazon.com/images/I/81aTxTMB33L._SY522_.jpg",
+                "https://m.media-amazon.com/images/I/91VsMogZpwL._AC_UY654_FMwebp_QL65_.jpg",
                 'J.K. Rowling',
                 "A turning point in the series, both in tone and stakes."
             ),
@@ -43,7 +43,7 @@ class MockDAO extends DAO {
                 4,
                 "Harry Potter and the Order of the Phoenix",
                 "Harry faces growing threats, forms Dumbledore's Army, and battles political interference at Hogwarts.",
-                "https://m.media-amazon.com/images/I/61XGdLECZ5L._SX342_SY445_.jpg",
+                "https://m.media-amazon.com/images/I/91bFQk3bMLL._AC_UY654_FMwebp_QL65_.jpg",
                 'J.K. Rowling',
                 "Emotionally rich and politically charged."
             ),
@@ -51,10 +51,19 @@ class MockDAO extends DAO {
                 5,
                 "Harry Potter and the Half-Blood Prince",
                 "Dark secrets are revealed as Harry learns about Voldemort's past and prepares for the final battle.",
-                "https://m.media-amazon.com/images/I/61XGdLECZ5L._SX342_SY445_.jpg",
+                "https://m.media-amazon.com/images/I/81xf7GKNKTL._AC_UY654_FMwebp_QL65_.jpg",
+                'J.K. Rowling',
+                "Mature, mysterious, and masterfully written."
+            ),
+            new Book(
+                5,
+                "Harry Potter and the Half-Blood Prince",
+                "Dark secrets are revealed as Harry learns about Voldemort's past and prepares for the final battle.",
+                "https://m.media-amazon.com/images/I/81HBcDX72gL._AC_UY654_FMwebp_QL65_.jpg",
                 'J.K. Rowling',
                 "Mature, mysterious, and masterfully written."
             )
+
         ];
 
         const plainBooks = result.map((book: Book) => {
