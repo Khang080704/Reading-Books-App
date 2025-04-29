@@ -20,8 +20,7 @@ export function middleware(req: NextRequest) {
 export const config = {
     matcher: [
         '/user/Book',
-        '/user/BookMark',
-        '/user/Settings',
+        
         '/user/Time',
     ]
 }

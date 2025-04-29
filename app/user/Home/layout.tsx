@@ -51,7 +51,7 @@ function HomeLayout({ children }: { children: React.ReactNode }) {
                         </div>
                     )}
                 </div>
-                <div>{children}</div>
+                <div className='px-2'>{children}</div>
             </div>
         </BtnContext.Provider>
     );

@@ -28,7 +28,13 @@ body {
   --slide-up: slideUp linear 0.3s forward;
   --detail-page-height: 300px;
   --detail-page-height-mobile: 400px;
-  
+  --slide-in: slideIn ease-in 1s forward;
+}
+.slide-in {
+  animation: slideIn 0.2s ease-in forwards;
+}
+.slide-out {
+  animation: slideOut 0.1s ease-in forwards;
 }
 
 @keyframes slideUp {
@@ -37,5 +43,24 @@ body {
   }
   to {
     transform: translateY(-4);
+  }
+}
+
+@keyframes slideIn {
+  from{
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+@keyframes slideOut {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
   }
 }

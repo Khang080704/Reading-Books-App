@@ -32,7 +32,7 @@ function Button({
         <Comp
             className={`text-white rounded-[50] min-w-[200px] min-h-[50px] hover:cursor-pointer
         max-md:min-w-[150px] max-md:text-[0.8rem] mr-2 ${primary ? 'bg-black': 'bg-white hover:bg-gray-300'}
-        flex justify-center items-center w-[${width}]`}
+        flex justify-center items-center`}
             {...props}
             
         >

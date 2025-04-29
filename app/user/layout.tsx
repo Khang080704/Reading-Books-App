@@ -1,4 +1,5 @@
 import SideBar from "@/app/components/sidebar";
+import Menu from "@/app/components/mobileMenu";
 
 function UserLayout({children}: {children: React.ReactNode}) {
 
@@ -7,7 +8,10 @@ function UserLayout({children}: {children: React.ReactNode}) {
             <aside className="max-md:hidden">
                 <SideBar/>
             </aside>
-            <main className="flex-1 px-10 max-md:px-0">
+            <nav className="hidden max-md:block max-h-[80px]">
+                <Menu/>
+            </nav>
+            <main className="flex-1 px-10 max-md:px-0 max-md:mt-[60px]">
                 {children}
             </main>
         </main>

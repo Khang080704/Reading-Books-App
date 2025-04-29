@@ -34,7 +34,7 @@ function HomePage() {
     return (
         <div className="w-full">
             <div className="flex max-md:flex-col-reverse">
-                <div className="flex flex-col w-[50%] pr-7 max-md:pr-4 max-md:w-full">
+                <div className="flex flex-col w-[50%] pr-7 max-md:pr-0 max-md:w-full">
                     <h1 className="font-bold text-[2rem] mb-9 max-md:hidden">
                         {user ? `Happy reading, ${user}` : 'Happy reading'}
                     </h1>
