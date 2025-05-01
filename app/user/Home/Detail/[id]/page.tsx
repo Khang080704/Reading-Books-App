@@ -22,17 +22,17 @@ async function Detail({ params }: { params: Promise<{ id: string }> }) {
                 <div className="">
                     <h1 className="text-[1.5rem] font-bold mb-10 max-md:text-[1.2rem]">Editor</h1>
                     <p className="text-[1.0rem] max-md:text-[1.0rem]">
-                        Random House World; First Edition (Novemver 20, 2018)
+                        {books[bookID].publisher}
                     </p>
                 </div>
                 <div className="col-start-2">
                     <h1 className="text-[1.5rem] font-bold mb-10 max-md:text-[1.2rem]">Languange</h1>
-                    <p className="text-[1.0rem] max-md:text-[1.0rem]">Standard English (US and UK)</p>
+                    <p className="text-[1.0rem] max-md:text-[1.0rem]">{books[bookID].language}</p>
                 </div>
                 <div className="col-start-2">
                     <h1 className="text-[1.5rem] font-bold mb-10 max-md:text-[1.2rem]">Hardcover</h1>
                     <p className="text-[1.0rem] max-md:text-[1.0rem]">
-                        736 pages <br /> ISBN-10: 1234567890 <br /> ISBN-13: 123456789123
+                        {books[bookID].pageNum} pages <br /> ISBN-10: {books[bookID].ISBN_10} <br /> ISBN-13: {books[bookID].ISBN_13}
                     </p>
                 </div>
 

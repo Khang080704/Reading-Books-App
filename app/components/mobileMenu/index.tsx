@@ -6,15 +6,15 @@ import { useEffect, useState } from 'react';
 import SideBar from '@/app/components/sidebar';
 
 function Menu() {
-    const [isOpen, setIsOpen] = useState(true);
-    const [animate, setAnimate] = useState('slide-in');
+    const [isOpen, setIsOpen] = useState(false);
+    const [animate, setAnimate] = useState('');
 
     useEffect(() => {
         if (isOpen) {
             setAnimate('slide-in');
-        } else {
-            setAnimate('slide-out');
-            setTimeout(() => {}, 200);
+        }
+        else {
+            setAnimate('slide-out')
         }
     }, [isOpen]);
 

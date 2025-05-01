@@ -12,6 +12,12 @@ export interface BookDTO {
     image: string; 
     author: string;
     preface: string;
+    pageNum: number;
+    publicYear: number;
+    ISBN_10: string;
+    ISBN_13: string;
+    publisher: string;
+    language: string;
 }
 
 export default DAO
